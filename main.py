@@ -13,6 +13,7 @@ from pydantic import EmailStr
 from pydantic import Field
 #FastAPI
 from fastapi import FastAPI
+from fastapi import status
 
 app = FastAPI()
 
@@ -49,9 +50,18 @@ class Tweet(BaseModel):
     updated_at: Optional[datetime] = Field(default=None)
     by: User = Field(...)
 
+# Path Operations
 @app.get(
-    path="/",
-    
+    path="/",    
 )
 def home():
     return {"Twitter API": "It's working!"}
+
+## Users
+
+@app.post(
+    path="/signup",
+    response_model=User,
+    status_code=
+)
+## Tweets
