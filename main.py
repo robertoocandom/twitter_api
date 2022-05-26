@@ -1,8 +1,11 @@
 # Python
+import json
+from unittest import result
 from uuid import UUID
 from datetime import date
 from datetime import datetime
 from typing import Optional, List
+
 
 #Pydantic
 from pydantic import BaseModel
@@ -10,7 +13,7 @@ from pydantic import EmailStr
 from pydantic import Field
 
 #FastAPI
-from fastapi import FastAPI
+from fastapi import Body, FastAPI
 from fastapi import status
 
 app = FastAPI()
@@ -27,12 +30,6 @@ class UserLogin(UserBase):
         min_length=8,
         max_length=64)
 
-class UserRegister(User):
-    password: str = Field(
-        ..., 
-        min_length=8,
-        max_length=64)
-
 class User(UserBase):
     first_name: str = Field(
         ...,
@@ -43,6 +40,13 @@ class User(UserBase):
         min_length=1,
         max_length=50)
     birth_date: Optional[date] = Field(default=None)
+
+class UserRegister(User):
+    password: str = Field(
+        ..., 
+        min_length=8,
+        max_length=64)
+
 
 class Tweet(BaseModel):
     twit_id: UUID = Field(...)
@@ -68,24 +72,33 @@ class Tweet(BaseModel):
     summary="Register a User",
     tags=["Users"]
 )
-def signup():
+def signup(user: UserRegister = Body(...)):
     """
     SingUp
 
     This path operations register a User in the app
 
-    Parameters:
+    - Parameters:
         - Request body parameter
             - user: UserRegister
 
-    Returns a json with the basic user information:
-        - User_id: UUID
+    - Returns a json with the basic user information:
+        - user_id: UUID
         - email: EmailStr
         - Firt_name: str
         - last_name: str
         - birth_date: data
     """
     
+    with open("users.json", "r+", encoding="utf-8") as f:
+        results = json.loads(f.read())
+        user_dict = user.dict()
+        user_dict["user_id"] = str(user_dict["user_id"])
+        user_dict["birth_date"] = str(user_dict["birth_date"])
+        results.append(user_dict)
+        f.seek(0)
+        f.write(json.dumps(results))
+        return user
 
 ### Login a user
 @app.post(
