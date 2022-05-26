@@ -1,4 +1,5 @@
 # Python
+import json
 from uuid import UUID
 from datetime import date
 from datetime import datetime
@@ -63,7 +64,9 @@ class Tweet(BaseModel):
     tags=["Users"]
 )
 def signup():
-    pass
+    """
+    
+    """
 
 ### Login a user
 @app.post(
@@ -85,7 +88,15 @@ def login():
     tags=["Users"]
 )
 def show_all_users():
-    pass
+    """
+    This path operations shows all users in the app.
+
+    - Parameterns:
+        -  
+    
+    Returns a json list with all users in the app, within the following use information
+
+    """
 
 ### Show a user
 @app.get(
