@@ -140,7 +140,7 @@ def home():
     response_model=Tweet,
     status_code=status.HTTP_201_CREATED,
     summary="Post a Tweet",
-    tags=["Tweet"]
+    tags=["Tweets"]
 )
 def post():
     pass
