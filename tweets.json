@@ -1,1 +1,41 @@
-[]
+[
+    {
+        "tweet_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "content": "The first Tweet of the history in the world",
+        "created_at": "2022-05-26 21:31:23.155628",
+        "updated_at": "2022-05-27 02:31:53.568000+00:00",
+        "by": {
+            "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "email": "Roberto@example.com",
+            "first_name": "Roberto",
+            "last_name": "Ocando",
+            "birth_date": "2022-05-27"
+        }
+    },
+    {
+        "tweet_id": "3fa85f64-5717-4562-b3fc-2c963f66afa7",
+        "content": "The Second Tweet of platform",
+        "created_at": "2022-05-26 21:31:23.155628",
+        "updated_at": "2022-05-27 02:31:53.568000+00:00",
+        "by": {
+            "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "email": "Roberto@example.com",
+            "first_name": "Roberto",
+            "last_name": "Ocando",
+            "birth_date": "2022-05-27"
+        }
+    },
+    {
+        "tweet_id": "3fa85f64-5717-4562-b3fc-2c963f66afa8",
+        "content": "Estamos probando el endpoint de creacion de tweet",
+        "created_at": "2022-05-26 21:31:23.155628",
+        "updated_at": "2022-05-27 02:31:53.568000+00:00",
+        "by": {
+            "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "email": "Roberto@example.com",
+            "first_name": "Roberto",
+            "last_name": "Ocando",
+            "birth_date": "2022-05-27"
+        }
+    }
+]
